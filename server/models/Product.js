@@ -27,7 +27,7 @@ const productSchema = mongoose.Schema({
         default: 0
     },
 
-    continents: {
+    categories: {
         type: Number,
         default: 1
     },

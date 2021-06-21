@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 import { getCartItems, removeCartItem, onSuccessBuy } from '../../../_actions/user_actions';
 import UserCardBlock from './Sections/UserCardBlock';
 import { Empty, Result } from 'antd';
-import Paypal from '../../utils/Paypal';
 
 function CartPage(props) {
     const dispatch = useDispatch();
@@ -54,18 +53,18 @@ function CartPage(props) {
 
     }
 
-    const transactionSuccess = (data) => {
-        dispatch(onSuccessBuy({
-            paymentData: data,
-            cartDetail: props.user.cartDetail
-        }))
-            .then(response => {
-                if (response.payload.success) {
-                    setShowTotal(false)
-                    setShowSuccess(true)
-                }
-            })
-    }
+    // const transactionSuccess = (data) => {
+    //     dispatch(onSuccessBuy({
+    //         paymentData: data,
+    //         cartDetail: props.user.cartDetail
+    //     }))
+    //         .then(response => {
+    //             if (response.payload.success) {
+    //                 setShowTotal(false)
+    //                 setShowSuccess(true)
+    //             }
+    //         })
+    // }
 
 
 
@@ -93,13 +92,11 @@ function CartPage(props) {
                     </>
             }
 
+                <button type="payment">
+                주문하기
+                </button>
 
-            {ShowTotal &&
-                <Paypal
-                    total={Total}
-                    onSuccess={transactionSuccess}
-                />
-            }
+                    
 
         </div>
     )

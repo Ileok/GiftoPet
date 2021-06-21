@@ -13,7 +13,7 @@ const categories = [
     },
     {
         "_id": 4,
-        "name": "위생용품"
+        "name": "목욕용품"
     },
     {
         "_id": 5,

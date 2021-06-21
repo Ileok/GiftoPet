@@ -8,7 +8,7 @@ const Categories = [
     { key: 1, value: "사료" },
     { key: 2, value: "간식" },
     { key: 3, value: "배변용품" },
-    { key: 4, value: "위생용품" },
+    { key: 4, value: "목욕용품" },
     { key: 5, value: "실내용품" },
     { key: 6, value: "산책용품" },
     { key: 7, value: "장난감" }
