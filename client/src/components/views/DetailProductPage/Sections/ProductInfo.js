@@ -15,7 +15,7 @@ function ProductInfo(props) {
     return (
         <div>
             <Descriptions title="상품 정보">
-                <Descriptions.Item label="가격">{props.detail.price}</Descriptions.Item>
+                <Descriptions.Item label="가격">{props.detail.price}원</Descriptions.Item>
                 <Descriptions.Item label="설명">{props.detail.description}</Descriptions.Item>
             </Descriptions>
 
