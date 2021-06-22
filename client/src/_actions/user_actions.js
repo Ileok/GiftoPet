@@ -7,7 +7,7 @@ import {
     ADD_TO_CART,
     GET_CART_ITEMS,
     REMOVE_CART_ITEM,
-    // ON_SUCCESS_BUY
+    ON_SUCCESS_BUY
 } from './types';
 import { USER_SERVER } from '../components/Config.js';
 
@@ -114,16 +114,16 @@ export function removeCartItem(productId) {
 
 
 
-// export function onSuccessBuy(data) {
+export function onSuccessBuy(data) {
 
-//     const request = axios.post(`/api/users/successBuy`, data)
-//         .then(response => response.data);
+    const request = axios.post(`/api/users/successBuy`, data)
+        .then(response => response.data);
 
-//     return {
-//         type: ON_SUCCESS_BUY,
-//         payload: request
-//     }
-// }
+    return {
+        type: ON_SUCCESS_BUY,
+        payload: request
+    }
+}
 
 
 

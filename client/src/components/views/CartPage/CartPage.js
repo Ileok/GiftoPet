@@ -12,6 +12,20 @@ function CartPage(props) {
     const [ShowTotal, setShowTotal] = useState(false)
     const [ShowSuccess, setShowSuccess] = useState(false)
 
+    const clickHandler = () => {
+        dispatch(onSuccessBuy({
+            paymentData: Total,
+            cartDetail: props.user.cartDetail
+        }))
+            .then(response => {
+                if (response.payload.success) {
+                    setShowTotal(false)
+                    setShowSuccess(true)
+                }
+            })
+        alert('주문이 완료 되었습니다.');
+    }
+
     useEffect(() => {
 
         let cartItems = []
@@ -54,18 +68,18 @@ function CartPage(props) {
 
     }
 
-    // const transactionSuccess = (data) => {
-    //     dispatch(onSuccessBuy({
-    //         paymentData: data,
-    //         cartDetail: props.user.cartDetail
-    //     }))
-    //         .then(response => {
-    //             if (response.payload.success) {
-    //                 setShowTotal(false)
-    //                 setShowSuccess(true)
-    //             }
-    //         })
-    // }
+    const transactionSuccess = (data) => {
+        dispatch(onSuccessBuy({
+            paymentData: data,
+            cartDetail: props.user.cartDetail
+        }))
+            .then(response => {
+                if (response.payload.success) {
+                    setShowTotal(false)
+                    setShowSuccess(true)
+                }
+            })
+    }
 
 
 
@@ -93,9 +107,11 @@ function CartPage(props) {
                     </>
             }
 
-                <button type="primary" id = "btn1" >
+
+            <button type="primary" id = "btn1" onClick={clickHandler} >
                     Order
                 </button>
+                
 
                     
 
