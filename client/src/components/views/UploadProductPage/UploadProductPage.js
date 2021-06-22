@@ -65,10 +65,10 @@ function UploadProductPage(props) {
         Axios.post('/api/product', body)
             .then(response => {
                 if (response.data.success) {
-                    alert('상품 업로드에 성공 했습니다.')
+                    alert('상품 업로드에 성공했습니다.')
                     props.history.push('/')
                 } else {
-                    alert('상품 업로드에 실패 했습니다.')
+                    alert('상품 업로드에 실패했습니다.')
                 }
             })
     }
@@ -77,7 +77,7 @@ function UploadProductPage(props) {
     return (
         <div style={{ maxWidth: '700px', margin: '2rem auto' }}>
             <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-                <h2> 상품 업로드</h2>
+                <h2> NEW PRODUCT</h2>
             </div>
 
             <Form onSubmit={submitHandler}>
@@ -86,27 +86,30 @@ function UploadProductPage(props) {
 
                 <br />
                 <br />
-                <label>이름</label>
+                <label>Name</label>
                 <Input onChange={titleChangeHandler} value={Title} />
                 <br />
                 <br />
-                <label>설명</label>
+                <label>Description</label>
                 <TextArea onChange={descriptionChangeHandler} value={Description} />
                 <br />
                 <br />
-                <label>가격</label>
+                <label>Price</label>
                 <Input type="number" onChange={priceChangeHandler} value={Price} />
                 <br />
                 <br />
-                <select onChange={categoryChangeHandler} value={Category}>
+                <label>Categories</label>
+                <select onChange={categoryChangeHandler} value={Category} style={{ minWidth: '100%' }}>
                     {Categories.map(item => (
                         <option key={item.key} value={item.key}> {item.value}</option>
                     ))}
                 </select>
                 <br />
                 <br />
-                <button type="submit">
-                    확인
+                <br />
+                <br />
+                <button id = "btn1" type="submit" style={{ minWidth: '100%' }}>
+                    OK
                 </button>
             </Form>
 

@@ -8,7 +8,8 @@ function Footer() {
             flexDirection: 'column', alignItems: 'center',
             justifyContent: 'center', fontSize:'1rem'
         }}>
-           <p> GiftoPet  <Icon type="smile" /></p>
+           <p>GiftoPet  <Icon type="smile" /></p>
+           <p>Copyright @ 2021 GiftoPet All Right Reserved.</p>
         </div>
     )
 }

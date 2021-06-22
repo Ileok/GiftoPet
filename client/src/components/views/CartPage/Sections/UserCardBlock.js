@@ -18,16 +18,17 @@ function UserCardBlock(props) {
                 <td>
                     <img style={{ width: '70px' }} alt="product"
                         src={renderCartImage(product.images)} />
+                        {product.title}
                 </td>
                 <td>
-                    {product.quantity} 개
+                    x {product.quantity} 
                 </td>
                 <td>
-                    {product.price} 원
+                    ￦ {product.price}
                 </td>
                 <td>
-                    <button onClick={() => props.removeItem(product._id)}>
-                        삭제 
+                    <button id = "btn1" onClick={() => props.removeItem(product._id)}>
+                        Delete From Cart
                     </button>
                 </td>
             </tr>
@@ -40,10 +41,10 @@ function UserCardBlock(props) {
             <table>
                 <thead>
                     <tr>
-                        <th>상품 이미지</th>
-                        <th>상품 수량</th>
-                        <th>상품 가격</th>
-                        <th>장바구니에서 삭제</th>
+                        <th>Image</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Options</th>
                     </tr>
                 </thead>
 

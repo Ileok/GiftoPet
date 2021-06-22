@@ -143,7 +143,7 @@ function LandingPage() {
         <div style={{ width: '75%', margin: '3rem auto' }}>
 
             <div style={{ textAlign: 'center' }}>
-                <h2>상품 둘러보기 </h2>
+                <h2>Products</h2>
             </div>
 
             {/* Filter */}
@@ -182,7 +182,7 @@ function LandingPage() {
 
             {PostSize >= Limit &&
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <button onClick={loadMoreHanlder}>더보기</button>
+                    <button id = "btn1" onClick={loadMoreHanlder}>More Products</button>
                 </div>
             }
 

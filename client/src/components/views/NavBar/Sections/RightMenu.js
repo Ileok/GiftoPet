@@ -12,6 +12,7 @@ function RightMenu(props) {
   const logoutHandler = () => {
     axios.get(`${USER_SERVER}/logout`).then(response => {
       if (response.status === 200) {
+        alert('로그아웃되었습니다. 로그인 페이지로 이동합니다.');
         props.history.push("/login");
       } else {
         alert('Log Out Failed')
@@ -23,10 +24,10 @@ function RightMenu(props) {
     return (
       <Menu mode={props.mode}>
         <Menu.Item key="mail">
-          <a href="/login">로그인</a>
+          <a href="/login">Login</a>
         </Menu.Item>
         <Menu.Item key="app">
-          <a href="/register">회원가입</a>
+          <a href="/register">Join</a>
         </Menu.Item>
       </Menu>
     )
@@ -34,11 +35,11 @@ function RightMenu(props) {
     return (
       <Menu mode={props.mode}>
         <Menu.Item key="history">
-          <a href="/history">주문 기록</a>
+          <a href="/history">Order History</a>
         </Menu.Item>
 
         <Menu.Item key="upload">
-          <a href="/product/upload">상품 업로드</a>
+          <a href="/product/upload">New Product</a>
         </Menu.Item>
 
         <Menu.Item key="cart" style={{ paddingBottom: 3 }}>
@@ -50,7 +51,7 @@ function RightMenu(props) {
         </Menu.Item>
 
         <Menu.Item key="logout">
-          <a onClick={logoutHandler}>로그아웃</a>
+          <a onClick={logoutHandler}>Logout</a>
         </Menu.Item>
       </Menu>
     )

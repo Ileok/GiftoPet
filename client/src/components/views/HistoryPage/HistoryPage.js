@@ -5,17 +5,17 @@ function HistoryPage(props) {
     return (
         <div style={{ width: '80%', margin: '3rem auto' }}>
             <div style={{ textAlign: 'center' }}>
-                <h1>주문 기록</h1>
+                <h1>Order History</h1>
             </div>
             <br />
 
             <table>
                 <thead>
                     <tr>
-                        <th>주문번호</th>
-                        <th>가격</th>
-                        <th>수량</th>
-                        <th>구입일</th>
+                        <th>Order No.</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Date</th>
                     </tr>
                 </thead>
 

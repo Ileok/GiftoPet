@@ -35,7 +35,7 @@ function NavBar() {
           <Icon type="align-right" />
         </Button>
         <Drawer
-          title="메뉴"
+          title="Menu"
           placement="right"
           className="menu_drawer"
           closable={false}

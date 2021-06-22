@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { getCartItems, removeCartItem, onSuccessBuy } from '../../../_actions/user_actions';
 import UserCardBlock from './Sections/UserCardBlock';
 import { Empty, Result } from 'antd';
+import "./CartPage.css"
 
 function CartPage(props) {
     const dispatch = useDispatch();
@@ -70,7 +71,7 @@ function CartPage(props) {
 
     return (
         <div style={{ width: '85%', margin: '3rem auto' }}>
-            <h1>장바구니</h1>
+            <h1>Cart</h1>
 
             <div>
                 <UserCardBlock products={props.user.cartDetail} removeItem={removeFromCart} />
@@ -78,7 +79,7 @@ function CartPage(props) {
 
             {ShowTotal ?
                 <div style={{ marginTop: '3rem' }}>
-                    <h2>총 가격 : {Total}원</h2>
+                    <h2>Total Price : ￦{Total}</h2>
                 </div>
                 : ShowSuccess ?
                     <Result
@@ -92,8 +93,8 @@ function CartPage(props) {
                     </>
             }
 
-                <button type="payment">
-                주문하기
+                <button type="primary" id = "btn1" >
+                    Order
                 </button>
 
                     
