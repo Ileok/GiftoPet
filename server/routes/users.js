@@ -66,7 +66,10 @@ router.post("/login", (req, res) => {
 
 router.get("/logout", auth, (req, res) => {
     User.findOneAndUpdate({ _id: req.user._id }, { token: "", tokenExp: "" }, (err, doc) => {
-        if (err) return res.json({ success: false, err });
+        if (err){
+            alert('로그아웃 되었습니다.');
+            return res.json({ success: false, err });
+        }
         return res.status(200).send({
             success: true
         });
