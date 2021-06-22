@@ -9590,15 +9590,6 @@
   "resolved" "https://registry.npmjs.org/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz"
   "version" "3.0.4"
 
-"react-paypal-express-checkout@^1.0.5":
-  "integrity" "sha512-J2s/C9ftuG/ja1/QelGSg4veXij5p9zNhOqr2wTw6ERprWpHbQm/JNx/U43G5aiqAnnoFxlKsFl+t1nAOqbw6w=="
-  "resolved" "https://registry.npmjs.org/react-paypal-express-checkout/-/react-paypal-express-checkout-1.0.5.tgz"
-  "version" "1.0.5"
-  dependencies:
-    "babel-runtime" "^6.6.1"
-    "prop-types" "^15.5.10"
-    "react-async-script-loader" "^0.3.0"
-
 "react-redux@^7.1.0-rc.1":
   "integrity" "sha512-EvCAZYGfOLqwV7gh849xy9/pt55rJXPwmYvI4lilPM5rUT/1NxuuN59ipdBksRVSvz0KInbPnp4IfoXJXCqiDA=="
   "resolved" "https://registry.npmjs.org/react-redux/-/react-redux-7.2.0.tgz"
