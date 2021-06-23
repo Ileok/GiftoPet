@@ -1,15 +1,20 @@
 @import '~antd/dist/antd.css';
 
+
+html {
+  --antd-wave-shadow-color: #f5e769;
+}
+
 .menu {
   padding: 0 20px;
-  border-bottom: solid 1px #e8e8e8;
   overflow: auto;
   box-shadow: 0 0 30px #f3f1f1;
   background-color: white;
+  border: 5px solid #f5e769;
 }
 
 .menu__logo {
-  width: 150px;
+  width: 200px;
   float: left;
 }
 
@@ -17,10 +22,20 @@
   display: inline-block;
   font-size: 20px;
   padding: 19px 20px;
+  color: black;
+  -webkit-text-stroke: 0.5px #000;
 }
 
+.ant-menu-horizontal .ant-menu-item a:hover{
+  color:black;
+}
 .menu__container .ant-menu-item {
   padding: 0px 5px;
+}
+
+.ant-menu-item a:hover {
+  color:#f5e769;
+  -webkit-text-stroke: 0.5px #000;
 }
 
 .menu__container .ant-menu-submenu-title {
@@ -50,16 +65,24 @@
   padding: 6px;
   margin-top: 8px;
   display: none !important; /* use of important to overwrite ant-btn */
-  background: #3e91f7;
+  background-color : #f5e769;
+  border-color: #f5e769;
+}
+
+.menu__mobile-button:hover{
+  background-color : #f5e769;;
+  border-color: black;
 }
 
 .menu_drawer .ant-drawer-body {
   padding: 0 !important;
+  background-color: #f5e769;
 }
 
 /* align header of Drawer with header of page */
 .menu_drawer .ant-drawer-header {
   padding: 14px 24px !important;
+  background-color: #f5e769;
 }
 
 @media (max-width: 767px) {
@@ -84,4 +107,20 @@
   .menu__logo a {
     padding: 10px 20px;
   }
+}
+
+.ant-btn-primary {
+  border-color: #f5e769;
+  background-color: #f5e769;
+}
+
+.ant-btn-primary:hover {
+  color: white;
+  border-color: black;
+  background-color: black;
+}
+
+a {
+  color: black;
+  -webkit-text-stroke: 0.5px #000;
 }

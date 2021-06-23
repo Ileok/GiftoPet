@@ -18,6 +18,7 @@ body {
   font-size: 14px;
   line-height: 1.5;
   color: #24292e;
+  color: rgba(0,0,0,0.85);
   background-color: #fff;
 }
 
@@ -38,4 +39,15 @@ input.error {
   color: red;
   height: 5px;
   margin-top: -12px;
+}
+
+
+
+.ant-input:focus{
+  border-color: black;
+  background-color: #f5e769;
+}
+
+::selection{
+  background:#f5e769;
 }

@@ -164,10 +164,11 @@ router.post('/successBuy', auth, (req, res) => {
     //1. User Collection 안에  History 필드 안에  간단한 결제 정보 넣어주기
     let history = [];
     let transactionData = {};
+    let today = new Date()
 
     req.body.cartDetail.forEach((item) => {
         history.push({
-            dateOfPurchase: Date.now(),
+            dateOfPurchase: today,
             name: item.title,
             id: item._id,
             price: item.price,

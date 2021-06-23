@@ -18,7 +18,7 @@ function NavBar() {
   return (
     <nav className="menu" style={{ position: 'fixed', zIndex: 5, width: '100%' }}>
       <div className="menu__logo">
-        <a href="/">GiftoPet</a>
+        <a href="/"><img src='../pawprint2.ico' style={{marginRight :10}}></img>GiftoPet</a>
       </div>
       <div className="menu__container">
         <div className="menu_left">

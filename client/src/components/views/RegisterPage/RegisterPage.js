@@ -94,10 +94,11 @@ function RegisterPage(props) {
         } = props;
         return (
           <div className="app">
-            <h2>회원가입</h2>
+            <h1>Welcome to GiftoPet !</h1>
+            <br/><br/><br/>
             <Form style={{ minWidth: '375px' }} {...formItemLayout} onSubmit={handleSubmit} >
 
-              <Form.Item required label="이름">
+              <Form.Item required label="Name">
                 <Input
                   id="name"
                   placeholder="이름"
@@ -131,7 +132,7 @@ function RegisterPage(props) {
                 )}
               </Form.Item>
 
-              <Form.Item required label="비밀번호" hasFeedback validateStatus={errors.password && touched.password ? "error" : 'success'}>
+              <Form.Item required label="Password" hasFeedback validateStatus={errors.password && touched.password ? "error" : 'success'}>
                 <Input
                   id="password"
                   placeholder="비밀번호"
@@ -148,7 +149,7 @@ function RegisterPage(props) {
                 )}
               </Form.Item>
 
-              <Form.Item required label="비밀번호 확인" hasFeedback>
+              <Form.Item required label="Password Check" hasFeedback>
                 <Input
                   id="confirmPassword"
                   placeholder="비밀번호 확인"

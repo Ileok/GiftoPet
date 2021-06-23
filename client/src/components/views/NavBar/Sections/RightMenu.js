@@ -15,7 +15,7 @@ function RightMenu(props) {
         alert('로그아웃되었습니다. 로그인 페이지로 이동합니다.');
         props.history.push("/login");
       } else {
-        alert('Log Out Failed')
+        alert('로그아웃에 실패하였습니다.')
       }
     });
   };
@@ -27,7 +27,7 @@ function RightMenu(props) {
           <a href="/login">Login</a>
         </Menu.Item>
         <Menu.Item key="app">
-          <a href="/register">Join</a>
+          <a href="/register">Register</a>
         </Menu.Item>
       </Menu>
     )
@@ -42,10 +42,11 @@ function RightMenu(props) {
           <a href="/product/upload">New Product</a>
         </Menu.Item>
 
-        <Menu.Item key="cart" style={{ paddingBottom: 3 }}>
+        <Menu.Item key="cart" style={{ paddingBottom: 9 }}>
           <Badge count={user.userData && user.userData.cart.length}>
-            <a href="/user/cart" className="head-example" style={{ marginRight: -22, color: '#667777' }} >
-              <Icon type="shopping-cart" style={{ fontSize: 30, marginBottom: 3 }} />
+            <a href="/user/cart" className="head-example">
+              <Icon type="shopping-cart"/>
+              Cart
             </a>
           </Badge>
         </Menu.Item>
