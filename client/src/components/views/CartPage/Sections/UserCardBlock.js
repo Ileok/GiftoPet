@@ -16,7 +16,7 @@ function UserCardBlock(props) {
         props.products && props.products.map((product, index) => (
             <tr key={index}>
                 <td>
-                    <img style={{ width: '70px' }} alt="product"
+                    <img style={{ width: "10%" }} alt="product"
                         src={renderCartImage(product.images)} />
                         {product.title}
                 </td>
@@ -27,7 +27,7 @@ function UserCardBlock(props) {
                     ￦ {product.price}
                 </td>
                 <td>
-                    <button id = "btn1" onClick={() => props.removeItem(product._id)}>
+                    <button className="ant-btn-primary" style={{width:"100%"}} onClick={() => props.removeItem(product._id)}>
                         Delete From Cart
                     </button>
                 </td>

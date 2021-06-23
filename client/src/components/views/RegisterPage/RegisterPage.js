@@ -70,6 +70,7 @@ function RegisterPage(props) {
 
           dispatch(registerUser(dataToSubmit)).then(response => {
             if (response.payload.success) {
+              alert('회원가입에 성공하였습니다. 로그인 페이지로 이동합니다.');
               props.history.push("/login");
             } else {
               alert(response.payload.err.errmsg)
@@ -95,7 +96,7 @@ function RegisterPage(props) {
         return (
           <div className="app">
             <h1>Welcome to GiftoPet !</h1>
-            <br/><br/><br/>
+            <br/>
             <Form style={{ minWidth: '375px' }} {...formItemLayout} onSubmit={handleSubmit} >
 
               <Form.Item required label="Name">
@@ -167,9 +168,9 @@ function RegisterPage(props) {
               </Form.Item>
 
               <Form.Item {...tailFormItemLayout}>
-                <Button onClick={handleSubmit} type="primary" disabled={isSubmitting}>
-                  회원가입
-                </Button>
+                  <Button style={{width:200}} onClick={handleSubmit} type="primary" disabled={isSubmitting}>
+                    Register
+                  </Button>
               </Form.Item>
             </Form>
           </div>

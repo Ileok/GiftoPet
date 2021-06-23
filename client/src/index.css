@@ -43,11 +43,3 @@ input.error {
 
 
 
-.ant-input:focus{
-  border-color: black;
-  background-color: #f5e769;
-}
-
-::selection{
-  background:#f5e769;
-}

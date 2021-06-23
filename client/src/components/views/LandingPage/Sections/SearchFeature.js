@@ -13,11 +13,12 @@ function SearchFeature(props) {
     }
 
     return (
-        <div>
+        <div style={{ width: "100%"}}>
+            <h3>Search Products</h3>
             <Search
                 placeholder="Search"
                 onChange={searchHandler}
-                style={{ width: 200 }}
+                style={{ width: "100%" }}
                 value={SearchTerm}
             />
         </div>

@@ -22,6 +22,7 @@ function RadioBox(props) {
 
     return (
         <div>
+            <h3>Price Filter</h3>
             <Collapse defaultActiveKey={['0']} >
                 <Panel header="Price Range" key="1">
 

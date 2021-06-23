@@ -77,7 +77,7 @@ function UploadProductPage(props) {
     return (
         <div style={{ maxWidth: '700px', margin: '2rem auto' }}>
             <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-                <h2> NEW PRODUCT</h2>
+                <h1> NEW PRODUCT</h1>
             </div>
 
             <Form onSubmit={submitHandler}>
@@ -108,7 +108,7 @@ function UploadProductPage(props) {
                 <br />
                 <br />
                 <br />
-                <button id = "btn1" type="submit" style={{ minWidth: '100%' }}>
+                <button className="ant-btn-primary" type="submit" style={{ minWidth: '100%' }}>
                     OK
                 </button>
             </Form>

@@ -73,8 +73,8 @@ function LandingPage() {
                 cover={<a href={`/product/${product._id}`} ><ImageSlider images={product.images} /></a>}
             >
                 <Meta
-                    title={product.title}
-                    description={`${product.price}원`}
+                    title={`[판매중] ${product.title}`}
+                    description={`￦${product.price}`}
                 />
             </Card>
         </Col>
@@ -143,7 +143,7 @@ function LandingPage() {
         <div style={{ width: '75%', margin: '3rem auto' }}>
 
             <div style={{ textAlign: 'center' }}>
-                <h2>Products</h2>
+                <h1>Products</h1>
             </div>
 
             {/* Filter */}
@@ -182,7 +182,7 @@ function LandingPage() {
 
             {PostSize >= Limit &&
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <button id = "btn1" onClick={loadMoreHanlder}>More Products</button>
+                    <button className="ant-btn-primary" style={{width:"75%"}} onClick={loadMoreHanlder}>More Products</button>
                 </div>
             }
 

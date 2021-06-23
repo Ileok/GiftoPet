@@ -27,15 +27,22 @@ html {
 }
 
 .ant-menu-horizontal .ant-menu-item a:hover{
-  color:black;
+  color:#f5e769;
+  -webkit-text-stroke: 0.5px #000;
 }
 .menu__container .ant-menu-item {
+  font-size: 15px;
+  font-family:fantasy;
   padding: 0px 5px;
 }
 
+.menu__container .ant-menu-item:hover {
+  border-bottom: white;
+}
+
 .ant-menu-item a:hover {
-  color:#f5e769;
-  -webkit-text-stroke: 0.5px #000;
+  color:black;
+  -webkit-text-stroke: 0.5px #f5e769;
 }
 
 .menu__container .ant-menu-submenu-title {
@@ -109,8 +116,14 @@ html {
   }
 }
 
+h1{
+  font-family:fantasy;
+}
+
 .ant-btn-primary {
-  border-color: #f5e769;
+  font-family:fantasy;
+  color: #000;
+  border-color: black;
   background-color: #f5e769;
 }
 
@@ -120,7 +133,49 @@ html {
   background-color: black;
 }
 
-a {
+.ant-btn-primary:focus{
+  color: #000;
+  border-color: black;
+  background-color: #f5e769;
+}
+
+#a_login {
   color: black;
+}
+
+#a_login:hover{
+  color : black;
   -webkit-text-stroke: 0.5px #000;
+}
+
+.ant-input{
+  border-color: black;
+  background-color: #f5e769;
+}
+
+.ant-input:hover{
+  border-color: black;
+}
+
+.ant-collapse{
+  border-color: black;
+  border-bottom: #000;
+}
+
+.ant-collapse-header{
+  font-family:fantasy;
+  background: #f5e769;
+  border-color: black;
+  border-bottom: #000;
+  color: black;
+}
+
+.ant-collapse-content{
+  font-family:fantasy;
+  border-color: black;
+  border-bottom: #000;
+}
+
+::selection{
+  background:#f5e769;
 }

@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 import { getCartItems, removeCartItem, onSuccessBuy } from '../../../_actions/user_actions';
 import UserCardBlock from './Sections/UserCardBlock';
 import { Empty, Result } from 'antd';
-import "./CartPage.css"
 
 function CartPage(props) {
     const dispatch = useDispatch();
@@ -85,15 +84,17 @@ function CartPage(props) {
 
     return (
         <div style={{ width: '85%', margin: '3rem auto' }}>
-            <h1>Cart</h1>
-
+            <div style={{ textAlign: 'center' }}>
+                <h1>Cart</h1>
+            </div>
             <div>
                 <UserCardBlock products={props.user.cartDetail} removeItem={removeFromCart} />
             </div>
 
             {ShowTotal ?
                 <div style={{ marginTop: '3rem' }}>
-                    <h2>Total Price : ￦{Total}</h2>
+                    <h2>&nbsp;&nbsp;&nbsp;Total Price : </h2>
+                    <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;￦&nbsp;&nbsp;{Total}</h1>
                 </div>
                 : ShowSuccess ?
                     <Result
@@ -107,10 +108,11 @@ function CartPage(props) {
                     </>
             }
 
-
-            <button type="primary" id = "btn1" onClick={clickHandler} >
+            <div style={{ textAlign: 'center' }}>
+                <button type="primary" className="ant-btn-primary" onClick={clickHandler} style={{width:"50%"}}>
                     Order
                 </button>
+            </div>
                 
 
                     

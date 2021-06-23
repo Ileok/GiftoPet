@@ -36,6 +36,7 @@ function CheckBox(props) {
 
     return (
         <div>
+            <h3>Categories Filter</h3>
             <Collapse defaultActiveKey={['0']} >
                 <Panel header="Categories" key="1">
 

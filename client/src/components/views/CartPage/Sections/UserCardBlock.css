@@ -1,16 +1,22 @@
 
 table {
-    font-family: arial, sans-serif;
+    font-family:fantasy;
     border-collapse: collapse;
     width: 100%;
   }
   
+  thead tr{
+    border: 1px solid black;
+    background-color: #f5e769;
+    text-align: left;
+    padding: 8px;
+  }
   td,th {
-    border: 1px solid #dddddd;
+    border: 1px solid black;
     text-align: left;
     padding: 8px;
   }
   
   tr:nth-child(even) {
-    background-color: #dddddd;
+    background-color: white;
   }
