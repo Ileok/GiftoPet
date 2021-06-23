@@ -1,9 +1,13 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from 'react';
 import { auth } from '../_actions/user_actions';
 import { useSelector, useDispatch } from "react-redux";
 
 export default function (SpecificComponent, option, adminRoute = null) {
+
+    //null = 아무나 출입이 가능한 페이지
+    //true = 해당 유저만 출입이 가능한 페이지
+    //false = 해당 유저는 출입 불가능한 페이지
+    
     function AuthenticationCheck(props) {
 
         let user = useSelector(state => state.user);
