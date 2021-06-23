@@ -4,10 +4,7 @@ import axios from "axios";
 import { Icon, Col, Card, Row, Carousel } from 'antd';
 import Meta from 'antd/lib/card/Meta';
 import ImageSlider from '../../utils/ImageSlider';
-import Checkbox from './Sections/CheckBox';
-import Radiobox from './Sections/RadioBox';
-import SearchFeature from './Sections/SearchFeature';
-import { categories, price } from './Sections/Datas';
+import { categories, price } from './Datas';
 
 function LandingPage() {
 
@@ -145,41 +142,16 @@ function LandingPage() {
             <div style={{ textAlign: 'center' }}>
                 <h1>Products</h1>
             </div>
-
-            {/* Filter */}
-
-            <Row gutter={[16, 16]}>
-                <Col lg={12} xs={24}>
-                    {/* CheckBox */}
-                    <Checkbox list={categories} handleFilters={filters => handleFilters(filters, "categories")} />
-                </Col>
-                <Col lg={12} xs={24}>
-                    {/* RadioBox */}
-                    <Radiobox list={price} handleFilters={filters => handleFilters(filters, "price")} />
-                </Col>
-            </Row>
-
-
-
-
-
-            {/* Search */}
-
-            <div style={{ display: 'flex', justifyContent: 'flex-end', margin: '1rem auto' }}>
-                <SearchFeature
-                    refreshFunction={updateSearchTerm}
-                />
-            </div>
-
-            {/* Cards */}
-
+            <br/>
+            <br/>
 
             <Row gutter={[16, 16]} >
                 {renderCards}
             </Row>
 
             <br />
-
+            <br />
+            <br />
             {PostSize >= Limit &&
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
                     <button className="ant-btn-primary" style={{width:"75%"}} onClick={loadMoreHanlder}>More Products</button>

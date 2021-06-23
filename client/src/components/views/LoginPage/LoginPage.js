@@ -10,14 +10,7 @@ const { Title } = Typography;
 
 function LoginPage(props) {
   const dispatch = useDispatch();
-  const rememberMeChecked = localStorage.getItem("rememberMe") ? true : false;
-
   const [formErrorMessage, setFormErrorMessage] = useState('')
-  const [rememberMe, setRememberMe] = useState(rememberMeChecked)
-
-  const handleRememberMe = () => {
-    setRememberMe(!rememberMe)
-  };
 
   const initialEmail = localStorage.getItem("rememberMe") ? localStorage.getItem("rememberMe") : '';
 
@@ -46,11 +39,6 @@ function LoginPage(props) {
             .then(response => {
               if (response.payload.loginSuccess) {
                 window.localStorage.setItem('userId', response.payload.userId);
-                if (rememberMe === true) {
-                  window.localStorage.setItem('rememberMe', values.id);
-                } else {
-                  localStorage.removeItem('rememberMe');
-                }
                 props.history.push("/");
               } else {
                 setFormErrorMessage('Check out your Account or Password again')
@@ -124,16 +112,15 @@ function LoginPage(props) {
               )}
 
               <Form.Item>
-                <Checkbox id="rememberMe" onChange={handleRememberMe} checked={rememberMe} >계정 기억하기</Checkbox>
-                <a id="a_login" className="login-form-forgot" href="/reset_user" style={{ float: 'right' }}>
-                  비밀번호 찾기
-                  </a>
+                <Checkbox>계정 기억하기</Checkbox>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a id="a_login" >비밀번호 찾기</a>
+                <a id="a_login" style={{ float: 'right' }} href="/register">회원가입</a>
                 <div>
                   <Button type="primary" htmlType="submit" className="login-form-button" style={{ minWidth: '100%' }} disabled={isSubmitting} onSubmit={handleSubmit}>
                     Login
                 </Button>
                 </div>
-                회원이 아니시면 <a id="a_login" href="/register">회원가입</a>
               </Form.Item>
             </form>
           </div>
