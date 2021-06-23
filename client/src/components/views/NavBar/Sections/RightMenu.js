@@ -32,30 +32,53 @@ function RightMenu(props) {
       </Menu>
     )
   } else {
-    return (
-      <Menu mode={props.mode}>
-        <Menu.Item key="history">
-          <a href="/history">Order History</a>
-        </Menu.Item>
+    if (user.userData && !user.userData.isAdmin) {
+      return (
+        <Menu mode={props.mode}>
+          <Menu.Item key="history">
+            <a href="/history">Order History</a>
+          </Menu.Item>
 
-        <Menu.Item key="upload">
-          <a href="/product/upload">New Product</a>
-        </Menu.Item>
+          <Menu.Item key="cart" style={{ paddingBottom: 9 }}>
+            <Badge count={user.userData && user.userData.cart.length}>
+              <a href="/user/cart" className="head-example">
+                Cart
+                <Icon type="shopping-cart"/>
+              </a>
+            </Badge>
+          </Menu.Item>
+  
+          <Menu.Item key="logout">
+            <a onClick={logoutHandler}>Logout</a>
+          </Menu.Item>
+        </Menu>
+      )
+    } else {
+      return (
+        <Menu mode={props.mode}>
+          <Menu.Item key="history">
+            <a href="/history">Order History</a>
+          </Menu.Item>
 
-        <Menu.Item key="cart" style={{ paddingBottom: 9 }}>
-          <Badge count={user.userData && user.userData.cart.length}>
-            <a href="/user/cart" className="head-example">
-              Cart
-              <Icon type="shopping-cart"/>
-            </a>
-          </Badge>
-        </Menu.Item>
+          <Menu.Item key="upload">
+            <a href="/product/upload">New Product</a>
+          </Menu.Item>
 
-        <Menu.Item key="logout">
-          <a onClick={logoutHandler}>Logout</a>
-        </Menu.Item>
-      </Menu>
-    )
+          <Menu.Item key="cart" style={{ paddingBottom: 9 }}>
+            <Badge count={user.userData && user.userData.cart.length}>
+              <a href="/user/cart" className="head-example">
+                Cart
+                <Icon type="shopping-cart"/>
+              </a>
+            </Badge>
+          </Menu.Item>
+
+          <Menu.Item key="logout">
+            <a onClick={logoutHandler}>Logout</a>
+          </Menu.Item>
+        </Menu>
+     )
+    }
   }
 }
 
