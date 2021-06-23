@@ -32,13 +32,12 @@ function RightMenu(props) {
       </Menu>
     )
   } else {
-    if (user.userData && !user.userData.isAdmin) {
+    if (user.userData && !user.userData.isAdmin) { // 회원이 관리자가 아닌 일반 회원 일 때 
       return (
         <Menu mode={props.mode}>
           <Menu.Item key="history">
             <a href="/history">Order History</a>
           </Menu.Item>
-
           <Menu.Item key="cart" style={{ paddingBottom: 9 }}>
             <Badge count={user.userData && user.userData.cart.length}>
               <a href="/user/cart" className="head-example">
@@ -53,7 +52,7 @@ function RightMenu(props) {
           </Menu.Item>
         </Menu>
       )
-    } else {
+    } else { // 회원이 관리자일 때
       return (
         <Menu mode={props.mode}>
           <Menu.Item key="history">

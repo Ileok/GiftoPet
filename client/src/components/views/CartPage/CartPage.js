@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { getCartItems, removeCartItem, onSuccessBuy } from '../../../_actions/user_actions';
 import UserCardBlock from './Sections/UserCardBlock';
-import { Empty, Result } from 'antd';
 
 function CartPage(props) {
     const dispatch = useDispatch();
@@ -23,6 +22,7 @@ function CartPage(props) {
                 }
             })
         alert('주문이 완료 되었습니다.');
+        props.history.push("/");
     }
 
     useEffect(() => {
@@ -67,18 +67,7 @@ function CartPage(props) {
 
     }
 
-    const transactionSuccess = (data) => {
-        dispatch(onSuccessBuy({
-            paymentData: data,
-            cartDetail: props.user.cartDetail
-        }))
-            .then(response => {
-                if (response.payload.success) {
-                    setShowTotal(false)
-                    setShowSuccess(true)
-                }
-            })
-    }
+
 
 
 
@@ -91,22 +80,10 @@ function CartPage(props) {
                 <UserCardBlock products={props.user.cartDetail} removeItem={removeFromCart} />
             </div>
 
-            {ShowTotal ?
-                <div style={{ marginTop: '3rem' }}>
-                    <h2>&nbsp;&nbsp;&nbsp;Total Price : </h2>
-                    <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;￦&nbsp;&nbsp;{Total}</h1>
-                </div>
-                : ShowSuccess ?
-                    <Result
-                        status="success"
-                        title="Successfully Purchased Items"
-                    />
-                    :
-                    <>
-                        <br />
-                        <Empty description={false} />
-                    </>
-            }
+            <div style={{ marginTop: '3rem' }}>
+                <h2>&nbsp;&nbsp;&nbsp;Total Price : </h2>
+                <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;￦&nbsp;&nbsp;{Total}</h1>
+            </div>
 
             <div style={{ textAlign: 'center' }}>
                 <button type="primary" className="ant-btn-primary" onClick={clickHandler} style={{width:"50%"}}>
