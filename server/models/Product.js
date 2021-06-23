@@ -26,6 +26,11 @@ const productSchema = mongoose.Schema({
         default: []
     },
 
+    categories: {
+        type: Number,
+        default: 1
+    },
+
 })
 
 productSchema.index({

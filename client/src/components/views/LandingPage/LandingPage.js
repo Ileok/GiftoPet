@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { FaCode } from "react-icons/fa";
 import axios from "axios";
 import { Icon, Col, Card, Row, Carousel } from 'antd';
 import Meta from 'antd/lib/card/Meta';
 import ImageSlider from '../../utils/ImageSlider';
-import { categories, price } from './Datas';
 
 function LandingPage() {
 
@@ -12,11 +10,6 @@ function LandingPage() {
     const [Skip, setSkip] = useState(0)
     const [Limit, setLimit] = useState(8)
     const [PostSize, setPostSize] = useState(0)
-    const [Filters, setFilters] = useState({
-        categories: [],
-        price: []
-    })
-    const [SearchTerm, setSearchTerm] = useState("")
 
     useEffect(() => {
 
@@ -45,9 +38,6 @@ function LandingPage() {
             })
     }
 
-
-
-
     const loadMoreHanlder = () => {
 
         let skip = Skip + Limit
@@ -55,7 +45,6 @@ function LandingPage() {
             skip: skip,
             limit: Limit,
             loadMore: true,
-            filters: Filters
         }
 
         getProducts(body)
@@ -76,65 +65,6 @@ function LandingPage() {
             </Card>
         </Col>
     })
-
-    const showFilteredResults = (filters) => {
-
-        let body = {
-            skip: 0,
-            limit: Limit,
-            filters: filters
-        }
-
-        getProducts(body)
-        setSkip(0)
-
-    }
-
-
-    const handlePrice = (value) => {
-        const data = price;
-        let array = [];
-
-        for (let key in data) {
-            if (data[key]._id === parseInt(value, 10)) {
-                array = data[key].array;
-            }
-        }
-        return array;
-    }
-
-    const handleFilters = (filters, category) => {
-
-        const newFilters = { ...Filters }
-
-        newFilters[category] = filters
-
-        console.log('filters', filters)
-
-        if (category === "price") {
-            let priceValues = handlePrice(filters)
-            newFilters[category] = priceValues
-        }
-        showFilteredResults(newFilters)
-        setFilters(newFilters)
-    }
-
-    const updateSearchTerm = (newSearchTerm) => {
-
-        let body = {
-            skip: 0,
-            limit: Limit,
-            filters: Filters,
-            searchTerm: newSearchTerm
-        }
-
-        setSkip(0)
-        setSearchTerm(newSearchTerm)
-        getProducts(body)
-
-    }
-
-
 
     return (
         <div style={{ width: '75%', margin: '3rem auto' }}>
