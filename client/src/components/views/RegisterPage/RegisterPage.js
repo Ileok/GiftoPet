@@ -95,7 +95,7 @@ function RegisterPage(props) {
         } = props;
         return (
           <div className="app">
-            <h1>Welcome to GiftoPet !</h1>
+            <h1>Welcome to GiftoPet !!</h1>
             <br/>
             <Form style={{ minWidth: '375px' }} {...formItemLayout} onSubmit={handleSubmit} >
 
