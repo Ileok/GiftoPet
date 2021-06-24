@@ -2,7 +2,7 @@ import React from 'react'
 import "./UserCardBlock.css"
 function UserCardBlock(props) {
 
-    const renderCartImage = (images) => {
+    const renderCartImage = (images) => { // 상품이미지 렌더 함수
         if (images.length > 0) {
             let image = images[0]
             return `http://localhost:5000/${image}`
@@ -34,8 +34,6 @@ function UserCardBlock(props) {
             </tr>
         ))
     )
-
-
     return (
         <div>
             <table>

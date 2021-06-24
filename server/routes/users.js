@@ -18,9 +18,7 @@ router.get("/auth", auth, (req, res) => {
         isAuth: true,
         email: req.user.email,
         name: req.user.name,
-        lastname: req.user.lastname,
         role: req.user.role,
-        image: req.user.image,
         cart: req.user.cart,
         history: req.user.history
     });
@@ -76,41 +74,41 @@ router.get("/logout", auth, (req, res) => {
 
 router.post("/addToCart", auth, (req, res) => {
 
-    //먼저  User Collection에 해당 유저의 정보를 가져오기 
-    User.findOne({ _id: req.user._id },
-        (err, userInfo) => {
+    //User Collection에 해당 유저의 정보를 가져오기 
+    User.findOne({ _id: req.user._id }, // auth 미들웨어를 이용하여 req.user._id 사용.
+        (err, userInfo) => { // userInfo는 DB 내 유저컬렉션에서 해당하는 유저의 정보
 
             // 가져온 정보에서 카트에다 넣으려 하는 상품이 이미 들어 있는지 확인 
-
-            let duplicate = false;
-            userInfo.cart.forEach((item) => {
-                if (item.id === req.body.productId) {
-                    duplicate = true;
+            let duplicate = false; // true는 상품이 이미 있음, false는 상품이 있지 않음
+            userInfo.cart.forEach((item) => { // 유저정보 내 cart 내 item들을 forEach를 이용하여 하나하나 돌림
+                if (item.id === req.body.productId) { // 만약 아이템 id와 req.body.productId(넣으려는 상품)이 같다면
+                    duplicate = true; // duplicate는 true(장바구니에 이미 상품이 있음)
                 }
             })
 
             //상품이 이미 있을때
             if (duplicate) {
                 User.findOneAndUpdate(
-                    { _id: req.user._id, "cart.id": req.body.productId },
-                    { $inc: { "cart.$.quantity": 1 } },
-                    { new: true },
-                    (err, userInfo) => {
+                    { _id: req.user._id, "cart.id": req.body.productId }, // 현재 유저의 정보와 그 안에 있는 카트에서 상품을 잡음 
+                    { $inc: { "cart.$.quantity": 1 } }, // increment(증가) 메서드를 이용하여 cart 속 quantity(수량)의 값을 1 증가시킨다
+                    { new: true }, // 쿼리를 돌린 다음에 결과값을 받을 때 업데이트가 된 정보를 받기 위해 new : true 사용
+                    (err, userInfo) => { // 업데이트된 userInfo를 받음
                         if (err) return res.status(200).json({ success: false, err })
-                        res.status(200).send(userInfo.cart)
+                        res.status(200).send(userInfo.cart) // 정상적으로 받을 시 userInfo의 cart 정보를 프론트로 보내줌
                     }
                 )
             }
-            //상품이 이미 있지 않을때 
+            
+            //상품이 있지 않을때 
             else {
                 User.findOneAndUpdate(
                     { _id: req.user._id },
                     {
-                        $push: {
-                            cart: {
-                                id: req.body.productId,
-                                quantity: 1,
-                                date: Date.now()
+                        $push: { // push : 값을 넣어준다
+                            cart: { 
+                                id: req.body.productId, // 상품id와
+                                quantity: 1, // 수량 한 개와
+                                date: Date.now() // date를 넣어준다
                             }
                         }
                     },
@@ -127,7 +125,7 @@ router.post("/addToCart", auth, (req, res) => {
 
 router.get('/removeFromCart', auth, (req, res) => {
 
-    //먼저 cart안에 내가 지우려고 한 상품을 지워주기 
+    //cart안에 지우려는 상품을 지워주기 
     User.findOneAndUpdate(
         { _id: req.user._id },
         {
@@ -161,7 +159,7 @@ router.get('/removeFromCart', auth, (req, res) => {
 router.post('/successBuy', auth, (req, res) => {
 
 
-    //1. User Collection 안에  History 필드 안에  간단한 결제 정보 넣어주기
+    //User Collection 안에  History 필드 안에  간단한 결제 정보 넣어주기
     let history = [];
     let transactionData = {};
     let today = new Date()
@@ -173,18 +171,18 @@ router.post('/successBuy', auth, (req, res) => {
             id: item._id,
             price: item.price,
             quantity: item.quantity,
-            paymentId: req.body.paymentData.paymentID
+            //paymentId: req.body.paymentData.paymentID
         })
     })
 
-    //2. Payment Collection 안에  자세한 결제 정보들 넣어주기 
+    //Payment Collection 안에  자세한 결제 정보들 넣어주기 
     transactionData.user = {
         id: req.user._id,
         name: req.user.name,
         email: req.user.email
     }
 
-    transactionData.data = req.body.paymentData
+    //transactionData.data = req.body.paymentData
     transactionData.product = history
 
     //history 정보 저장 

@@ -61,26 +61,6 @@ router.post('/products', (req, res) => {
 
     let findArgs = {};
 
-    for (let key in req.body.filters) {
-        if (req.body.filters[key].length > 0) {
-
-            console.log('key', key)
-
-            if (key === "price") {
-                findArgs[key] = {
-                    //Greater than equal
-                    $gte: req.body.filters[key][0],
-                    //Less than equal
-                    $lte: req.body.filters[key][1]
-                }
-            } else {
-                findArgs[key] = req.body.filters[key];
-            }
-
-        }
-    }
-
-
     if (term) {
         Product.find(findArgs)
             .find({ $text: { $search: term } })
@@ -129,8 +109,7 @@ router.get('/products_by_id', (req, res) => {
 
     }
 
-    //productId를 이용해서 DB에서  productId와 같은 상품의 정보를 가져온다.
-
+    //productId를 이용해서 DB에서 productId와 같은 상품의 정보를 가져온다.
     Product.find({ _id: { $in: productIds } })
         .populate('writer')
         .exec((err, product) => {

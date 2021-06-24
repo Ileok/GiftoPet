@@ -1,5 +1,4 @@
 import React from "react";
-import moment from "moment";
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { registerUser } from "../../../_actions/user_actions";
@@ -39,13 +38,13 @@ function RegisterPage(props) {
   return (
 
     <Formik
-      initialValues={{
+      initialValues={{ // 회원정보 초기값
         email: '',
         name: '',
         password: '',
         confirmPassword: ''
       }}
-      validationSchema={Yup.object().shape({
+      validationSchema={Yup.object().shape({ // 회원정보 유효성 검사
         name: Yup.string()
           .required('이름을 입력해주세요'),
         email: Yup.string()
@@ -58,17 +57,16 @@ function RegisterPage(props) {
           .oneOf([Yup.ref('password'), null], '비밀번호가 일치하지 않습니다')
           .required('비밀번호를 확인해주세요')
       })}
-      onSubmit={(values, { setSubmitting }) => {
+      onSubmit={(values, { setSubmitting }) => { 
         setTimeout(() => {
 
-          let dataToSubmit = {
+          let dataToSubmit = { // registerUser 액션 함수에 파라미터로 보내기 위한 회원 데이터
             email: values.email,
             password: values.password,
             name: values.name,
-            image: `http://gravatar.com/avatar/${moment().unix()}?d=identicon`
           };
 
-          dispatch(registerUser(dataToSubmit)).then(response => {
+          dispatch(registerUser(dataToSubmit)).then(response => { // 회원가입 완료 여부 확인
             if (response.payload.success) {
               alert('회원가입에 성공하였습니다. 로그인 페이지로 이동합니다.');
               props.history.push("/login");
@@ -86,12 +84,10 @@ function RegisterPage(props) {
           values,
           touched,
           errors,
-          dirty,
           isSubmitting,
           handleChange,
           handleBlur,
           handleSubmit,
-          handleReset,
         } = props;
         return (
           <div className="app">
