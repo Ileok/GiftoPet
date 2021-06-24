@@ -31,7 +31,7 @@ const productSchema = mongoose.Schema({
         default: 1
     },
 
-})
+}, { timestamps: true })
 
 productSchema.index({
     title: 'text',
