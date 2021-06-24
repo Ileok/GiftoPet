@@ -19,7 +19,9 @@ import HistoryPage from './views/HistoryPage/HistoryPage';
 function App() {
   return (
     <Suspense fallback={(<div>Loading...</div>)}>
+      {/*상단 NavBar*/}
       <NavBar />
+      {/*중앙 Body*/}
       <div style={{ paddingTop: '69px', minHeight: 'calc(100vh - 80px)' }}>
         <Switch>
           <Route exact path="/" component={Auth(LandingPage, null)} />
@@ -29,9 +31,9 @@ function App() {
           <Route exact path="/product/:productId" component={Auth(DetailProductPage, null)} />
           <Route exact path="/user/cart" component={Auth(CartPage, true)} />
           <Route exact path="/history" component={Auth(HistoryPage, true)} />
-
         </Switch>
       </div>
+      {/*하단 Footer*/}
       <Footer />
     </Suspense>
   );

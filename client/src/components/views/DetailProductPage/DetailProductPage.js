@@ -28,7 +28,7 @@ function DetailProductPage(props) {
             </div>
 
             <br />
-
+            {/*Grid Layout(antd)*/}
             <Row gutter={[16, 16]} >
                 <Col lg={12} sm={24}>
                     {/* ProductImage */}

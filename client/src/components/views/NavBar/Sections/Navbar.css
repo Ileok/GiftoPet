@@ -71,7 +71,7 @@ html {
   height: 32px;
   padding: 6px;
   margin-top: 8px;
-  display: none !important; /* use of important to overwrite ant-btn */
+  display: none !important;
   background-color : #f5e769;
   border-color: #f5e769;
 }
@@ -86,13 +86,13 @@ html {
   background-color: #f5e769;
 }
 
-/* align header of Drawer with header of page */
 .menu_drawer .ant-drawer-header {
   padding: 14px 24px !important;
   background-color: #f5e769;
 }
 
-@media (max-width: 767px) {
+/*반응형 웹(메뉴 바) 구현; 창 크기에 따른 Navbar 형태 변경(setVisible)*/
+@media (max-width: 767px) { 
   .menu__mobile-button {
     display: inline-block !important;
   }
