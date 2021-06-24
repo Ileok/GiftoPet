@@ -2,8 +2,9 @@ import React from 'react'
 import { Icon, Col, Card, Row, Carousel } from 'antd';
 
 function ImageSlider(props) {
-    return (
+    return ( 
         <div>
+            {/* 캐러셀 슬라이더 */}
             <Carousel autoplay >
                 {props.images.map((image, index) => (
                     <div key={index}>

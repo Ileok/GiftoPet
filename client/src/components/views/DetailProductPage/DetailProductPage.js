@@ -30,6 +30,9 @@ function DetailProductPage(props) {
             <br />
             {/*Grid Layout(antd)*/}
             <Row gutter={[16, 16]} >
+                {/*반응형 웹 구현; 화면 크기에 따른 상품 목록 배치 변경*/}
+                {/*lg:1200px 이하 세로 배치, md:992px 이하 세로 배치,
+                sm:768 이하 세로 배치, xs:항상 가로 배치 */}
                 <Col lg={12} sm={24}>
                     {/* ProductImage */}
                     <ProductImage detail={Product} />

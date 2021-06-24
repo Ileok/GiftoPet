@@ -54,7 +54,8 @@ function LandingPage() {
 
     const renderCards = Products.map((product, index) => {
         {/*반응형 웹 구현; 화면 크기에 따른 상품 목록 배치 변경*/}
-        {/*lg:1200px 이하 세로 배치, md:992px 이하 세로 배치, xs:항상 가로 배치 */}
+        {/*lg:1200px 이하 세로 배치, md:992px 이하 세로 배치,
+         sm:768 이하 세로 배치, xs:항상 가로 배치 */}
         return <Col lg={6} md={8} xs={24} key={index}>
             <Card
                 cover={<a href={`/product/${product._id}`} >

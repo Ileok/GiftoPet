@@ -2,9 +2,9 @@ import React from 'react'
 import "./UserCardBlock.css"
 function UserCardBlock(props) {
 
-    const renderCartImage = (images) => {
+    const renderCartImage = (images) => { //image load
         if (images.length > 0) {
-            let image = images[0]
+            let image = images[0] //이미지 슬라이더 중 첫번째 사진 index
             return `http://localhost:5000/${image}`
         }
     }
@@ -12,7 +12,7 @@ function UserCardBlock(props) {
 
 
 
-    const renderItems = () => (
+    const renderItems = () => ( //데이터 불러오기
         props.products && props.products.map((product, index) => (
             <tr key={index}>
                 <td>
@@ -27,6 +27,7 @@ function UserCardBlock(props) {
                     ￦ {product.price}
                 </td>
                 <td>
+                    {/*장바구니 항목 삭제*/}
                     <button className="ant-btn-primary" style={{width:"100%"}} onClick={() => props.removeItem(product._id)}>
                         Delete From Cart
                     </button>

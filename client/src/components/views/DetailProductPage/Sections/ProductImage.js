@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import ImageGallery from 'react-image-gallery';
 
-function ProductImage(props) {
+function ProductImage(props) { 
 
     const [Images, setImages] = useState([])
 
@@ -21,7 +21,7 @@ function ProductImage(props) {
 
     }, [props.detail])
 
-    return (
+    return ( //image gallery 라이브러리
         <div>
             <ImageGallery items={Images} />
         </div>
